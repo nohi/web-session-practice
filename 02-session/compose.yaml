@@ -1,0 +1,12 @@
+services:
+  php-cli:
+    image: php:8.4-rc-cli-alpine
+    container_name: session-lesson02
+    ports:
+      - 60002:8000
+    volumes:
+      - ./html:/var/www/html
+      - ./php-session.ini:/usr/local/etc/php/conf.d/php-session.ini
+      - ./sessions:/var/lib/php/sessions # 適当なセッション保存先を指定
+    command: php -S 0.0.0.0:8000 -t /var/www/html/public/ /var/www/html/router.php # PHPビルトインサーバーを起動(開発環境用)
+    user: "${UID}:${GID}"
