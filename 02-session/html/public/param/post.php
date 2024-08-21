@@ -101,6 +101,7 @@ if (isset($filesParams['upload_file'])) {
                 // ここではリクエストボディ、レスポンスボディともにJSON形式でやり取りする例
                 const resp = await fetch('/api/sample.php', {
                     method: 'post',
+                    credentials: 'omit', // same-origin:同一オリジンの場合のみ送信, omit:クッキーを送信しない, include:常にクッキーを送信
                     headers: {
                         'Content-Type': 'application/json',
                     },

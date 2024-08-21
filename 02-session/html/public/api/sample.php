@@ -20,4 +20,5 @@ echo json_encode([
     'datetime' => $dt->format('Y-m-d H:i:s'),
     'timezone' => $tz->getName(),
     'js_post_param' => $dataArray['js_post_param'] ?? '',
+    'cookie' => $_COOKIE,
 ]);
